@@ -13,10 +13,10 @@ export default function reducer(state = initial, action: Action): State {
 			return state;
 
 		case actionTypes.SET_NAME:
-			return { ...state, name: action.payload };
+			return { ...state, name: action.payload as string };
 
 		case actionTypes.SET_AGE:
-			return { ...state, age: action.payload };
+			return { ...state, age: action.payload as number };
 
 		case actionTypes.CLEAR:
 			return { ...state, name: null, age: null };

@@ -1,9 +1,4 @@
-import type {
-	ActionSetName,
-	ActionSetAge,
-	ActionClear,
-	// TODO: other action interfaces
-} from "./types";
+import type { Action } from "./types";
 
 import {
 	SET_NAME,
@@ -12,16 +7,26 @@ import {
 	// TODO: other action types
 } from "./action-types";
 
-export const setName = (name: string): ActionSetName => ({
+// Note how payload type (string) is specified twice:
+// first next to the function parameter declaration,
+// then as the second parameter of the Action generic
+export const setName = (name: string): Action<typeof SET_NAME, string> => ({
 	type: SET_NAME,
 	payload: name,
 });
 
-export const setAge = (age: number): ActionSetAge => ({
+export const setAge = (age: number): Action<typeof SET_AGE, number> => ({
 	type: SET_AGE,
 	payload: age,
 });
 
-export const clear = (): ActionClear => ({
+export const clear = (): Action<typeof CLEAR, undefined> => ({
 	type: CLEAR,
+});
+
+// Note how there are no errors in the following code
+// snippet, despite this action having absolutely no sense
+export const noop = (value: object): Action<"NOOP"> => ({
+	type: "NOOP",
+	payload: value,
 });
