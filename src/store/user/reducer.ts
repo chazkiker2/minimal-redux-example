@@ -7,6 +7,12 @@ const initial: State = {
 	age: null,
 };
 
+// Note that, despite all the types being specified,
+// there is no action-to-payload correspondence.
+// In other words, the "SET_NAME" action really accepts
+// only `string`, but action.payload will be typed as
+// any possible payload, not only `string`
+
 export default function reducer(state = initial, action: Action): State {
 	switch (action.type) {
 		default:

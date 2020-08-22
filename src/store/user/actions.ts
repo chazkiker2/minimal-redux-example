@@ -23,10 +23,3 @@ export const setAge = (age: number): Action<typeof SET_AGE, number> => ({
 export const clear = (): Action<typeof CLEAR, undefined> => ({
 	type: CLEAR,
 });
-
-// Note how there are no errors in the following code
-// snippet, despite this action having absolutely no sense
-export const noop = (value: object): Action<"NOOP"> => ({
-	type: "NOOP",
-	payload: value,
-});
