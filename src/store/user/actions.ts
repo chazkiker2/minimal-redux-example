@@ -1,12 +1,14 @@
 import type {
 	ActionSetName,
-	ActionClearName,
+	ActionSetAge,
+	ActionClear,
 	// TODO: other action interfaces
 } from "./types";
 
 import {
 	SET_NAME,
-	CLEAR_NAME,
+	SET_AGE,
+	CLEAR,
 	// TODO: other action types
 } from "./action-types";
 
@@ -15,6 +17,11 @@ export const setName = (name: string): ActionSetName => ({
 	payload: name,
 });
 
-export const clearName = (): ActionClearName => ({
-	type: CLEAR_NAME,
+export const setAge = (age: number): ActionSetAge => ({
+	type: SET_AGE,
+	payload: age,
+});
+
+export const clear = (): ActionClear => ({
+	type: CLEAR,
 });

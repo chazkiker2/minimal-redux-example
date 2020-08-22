@@ -4,6 +4,7 @@ import * as actionTypes from "./action-types";
 /** @private */
 const initial: State = {
 	name: null,
+	age: null,
 };
 
 export default function reducer(state = initial, action: Action): State {
@@ -14,7 +15,10 @@ export default function reducer(state = initial, action: Action): State {
 		case actionTypes.SET_NAME:
 			return { ...state, name: action.payload };
 
-		case actionTypes.CLEAR_NAME:
-			return { ...state, name: null };
+		case actionTypes.SET_AGE:
+			return { ...state, age: action.payload };
+
+		case actionTypes.CLEAR:
+			return { ...state, name: null, age: null };
 	}
 }

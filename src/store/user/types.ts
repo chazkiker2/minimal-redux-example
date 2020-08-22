@@ -2,6 +2,7 @@ import type * as actionTypes from "./action-types";
 
 export interface State {
 	name: string | null;
+	age: number | null;
 }
 
 export interface ActionSetName {
@@ -9,14 +10,20 @@ export interface ActionSetName {
 	payload: string;
 }
 
-export interface ActionClearName {
-	type: typeof actionTypes.CLEAR_NAME;
+export interface ActionSetAge {
+	type: typeof actionTypes.SET_AGE;
+	payload: number;
+}
+
+export interface ActionClear {
+	type: typeof actionTypes.CLEAR;
 }
 
 // TODO: other action interfaces
 
 export type Action =
 	| ActionSetName
-	| ActionClearName
+	| ActionSetAge
+	| ActionClear
 	// TODO: other actions
 	;
