@@ -1,16 +1,19 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import UserForm from "./components/UserForm";
 import Greeting from "./components/Greeting";
 
 import type { State } from "./store";
 import type { State as UserState } from "./store/user/types";
-import { setName, setAge, clear } from "./store/user/actions";
+import useAction from "./store/use-action";
 
 function App() {
   const user = useSelector<State, UserState>((state) => state.user);
-  const dispatch = useDispatch();
+
+  const setName = useAction("USER$SET_NAME");
+  const setAge = useAction("USER$SET_AGE");
+  const clear = useAction("USER$CLEAR");
 
   return (
     <div>
@@ -20,13 +23,13 @@ function App() {
         <Greeting
           name={user.name}
           age={user.age}
-          onReject={() => dispatch(clear())}
+          onReject={clear}
         />
       ) : (
         <UserForm
           onSubmit={(name, age) => {
-            dispatch(setName(name));
-            dispatch(setAge(age));
+            setName(name);
+            setAge(age);
           }}
         />
       )}
