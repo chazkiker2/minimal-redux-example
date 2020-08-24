@@ -5,6 +5,12 @@ export interface State {
 	age: number | null;
 }
 
+export interface PayloadMap {
+	USER$SET_NAME: string;
+	USER$SET_AGE: number;
+	USER$CLEAR: never;
+}
+
 export interface ActionSetName {
 	type: typeof actionTypes.SET_NAME;
 	payload: string;
