@@ -1,5 +1,8 @@
-import type { State, Action } from "./types";
-import * as actionTypes from "./action-types";
+import type { ActionFrom } from "@parzh/typed-redux-actions";
+import type { State, PayloadMap } from "./types";
+
+/** @private */
+type Action = ActionFrom<PayloadMap, keyof PayloadMap>;
 
 /** @private */
 const initial: State = {
@@ -12,13 +15,13 @@ export default function reducer(state = initial, action: Action): State {
 		default:
 			return state;
 
-		case actionTypes.SET_NAME:
+		case "USER$SET_NAME":
 			return { ...state, name: action.payload };
 
-		case actionTypes.SET_AGE:
+		case "USER$SET_AGE":
 			return { ...state, age: action.payload };
 
-		case actionTypes.CLEAR:
+		case "USER$CLEAR":
 			return { ...state, name: null, age: null };
 	}
 }
