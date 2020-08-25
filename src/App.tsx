@@ -20,11 +20,7 @@ function App() {
       <h1>Hello there!</h1>
 
       { user.name != null && user.age != null ? (
-        <Greeting
-          name={user.name}
-          age={user.age}
-          onReject={clear}
-        />
+        <Greeting name={user.name} age={user.age} onReject={clear} />
       ) : (
         <UserForm
           onSubmit={(name, age) => {

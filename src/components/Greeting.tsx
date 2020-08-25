@@ -15,7 +15,9 @@ export default function Greeting({
   return (
     <>
       <h3>Hey, I know you!</h3>
-      <p>You're {name}, {age} years old, right?</p>
+      <p>
+        You're {name}, {age} years old, right?
+      </p>
       <button type="button" onClick={onReject}>
         No, that's not me
       </button>

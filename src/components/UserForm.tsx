@@ -13,7 +13,8 @@ export default function UserForm({ onSubmit }: Props): React.ReactElement {
     <>
       <h3>Who are you again?</h3>
       <p>
-        Type in your name and age below and click "Submit" to introduce yourself.
+        Type in your name and age below and click "Submit" to introduce
+        yourself.
       </p>
       <form
         onSubmit={(event) => {

@@ -17,12 +17,12 @@ type ActionType =
 type Params<Type extends ActionType> = PayloadMap[Type] extends never ? (
 	readonly []
 ) : (
-	readonly [ PayloadMap[Type] ]
+	readonly [PayloadMap[Type]]
 );
 
 /** @private */
 interface Dispatcher<Type extends ActionType> {
-	(...args: Params<Type>): void
+	(...args: Params<Type>): void;
 }
 
 export default function useAction<Type extends ActionType>(type: Type): Dispatcher<Type> {
