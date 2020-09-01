@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import type * as user from "./user/types";
 
@@ -28,12 +29,12 @@ interface Dispatcher<Type extends ActionType> {
 export default function useAction<Type extends ActionType>(type: Type): Dispatcher<Type> {
 	const dispatch = useDispatch();
 
-	return (...args): void => {
+	return useCallback((...args): void => {
 		dispatch(args.length === 1 ? {
 			type,
 			payload: args[0],
 		} : {
 			type,
 		});
-	};
+	}, [ dispatch, type ]);
 }
